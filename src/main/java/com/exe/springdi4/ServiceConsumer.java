@@ -6,6 +6,7 @@ public class ServiceConsumer {
 	//생성자로 의존성 주입
 	MessageService ms;
 	TimeService ts;
+	JobService js;
 	
 	/**메소드로 의존성 주입을 하기 위해서는 기본생성자 선언이 꼭 필요*/
 	public ServiceConsumer() {}
@@ -24,6 +25,11 @@ public class ServiceConsumer {
 		this.ts = ts;
 	}
 	
+	/**메소드로 의존성 주입*/
+	public void setJobService(JobService js) {
+		this.js = js;
+	}
+	
 	public void consumerService() {
 		
 //		GenericXmlApplicationContext context = 
@@ -36,6 +42,9 @@ public class ServiceConsumer {
 		
 		String time = ts.getTimeString();
 		System.out.println(time);
+		
+		//자체적으로 sysout을 가지고 있음
+		js.getJob();
 	}
 	
 }
